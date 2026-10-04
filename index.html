@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal developer portfolio of Ruchitha J.M. — B.Tech Computer Science & Information Technology student at REVA University.">
+  <title>Ruchitha J.M. | Aspiring Software Developer</title>
+  <style>
+    :root{
+      --bg:#07111f;
+      --bg-soft:#0b1728;
+      --card:rgba(14,29,48,.78);
+      --text:#edf4ff;
+      --muted:#9db0c8;
+      --line:rgba(157,176,200,.17);
+      --accent:#72e6c4;
+      --accent-2:#8da8ff;
+      --white:#fff;
+      --shadow:0 20px 60px rgba(0,0,0,.25);
+      --radius:22px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 85% 8%,rgba(114,230,196,.11),transparent 28rem),
+        radial-gradient(circle at 10% 22%,rgba(141,168,255,.10),transparent 28rem),
+        var(--bg);
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(7,17,31,.78);backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:-.03em}
+    .brand span{color:var(--accent)}
+    .nav-links{display:flex;gap:25px;font-size:.9rem;color:var(--muted)}
+    .nav-links a{transition:.25s ease}
+    .nav-links a:hover{color:var(--accent)}
+    .hero{min-height:calc(100vh - 72px);display:grid;align-items:center;padding:86px 0 100px}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid var(--line);
+      border-radius:999px;color:var(--accent);background:rgba(114,230,196,.06);
+      font-size:.82rem;font-weight:700;margin-bottom:24px;
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 15px var(--accent)}
+    h1{font-size:clamp(3.2rem,8vw,6.7rem);line-height:.93;letter-spacing:-.07em;max-width:850px}
+    h1 .accent{color:var(--accent)}
+    .hero-copy{font-size:1.1rem;color:var(--muted);max-width:700px;margin:28px 0 30px}
+    .identity{display:flex;flex-wrap:wrap;gap:10px}
+    .pill{border:1px solid var(--line);background:rgba(255,255,255,.025);padding:8px 12px;border-radius:999px;font-size:.82rem;color:#cbd8e8}
+    .hero-card{
+      border:1px solid var(--line);background:linear-gradient(145deg,rgba(18,39,63,.86),rgba(10,24,41,.68));
+      border-radius:28px;padding:30px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+      animation:float 5s ease-in-out infinite;
+    }
+    .hero-card:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(114,230,196,.12);filter:blur(35px);right:-50px;top:-50px}
+    .terminal-top{display:flex;gap:7px;margin-bottom:28px}
+    .terminal-top i{width:9px;height:9px;border-radius:50%;background:#52667f}
+    .code-line{font-family:"SFMono-Regular",Consolas,monospace;font-size:.88rem;color:#a8bad0;margin:12px 0}
+    .code-line .green{color:var(--accent)}
+    .code-line .blue{color:var(--accent-2)}
+    .code-line .dim{color:#62758e}
+    section{padding:100px 0;border-top:1px solid rgba(157,176,200,.09)}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+    .kicker{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.15em}
+    h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;letter-spacing:-.045em;margin-top:8px}
+    .section-intro{max-width:520px;color:var(--muted)}
+    .about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:26px}
+    .card{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:0 12px 40px rgba(0,0,0,.12)}
+    .card p{color:var(--muted);margin-bottom:17px}
+    .card p:last-child{margin-bottom:0}
+    .academic{display:grid;gap:13px}
+    .academic-row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);padding:10px 0}
+    .academic-row:last-child{border-bottom:0}
+    .academic-row span:first-child{color:var(--muted)}
+    .academic-row span:last-child{text-align:right;font-weight:700}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{min-height:245px;display:flex;flex-direction:column;transition:transform .25s ease,border-color .25s ease}
+    .project:hover{transform:translateY(-5px);border-color:rgba(114,230,196,.42)}
+    .project-number{font:700 .78rem "SFMono-Regular",Consolas,monospace;color:var(--accent);margin-bottom:25px}
+    .project h3{font-size:1.35rem;margin-bottom:12px}
+    .project p{font-size:.95rem;margin-bottom:18px}
+    .learn{margin-top:auto;border-top:1px solid var(--line);padding-top:15px;color:#d9e6f4;font-size:.88rem}
+    .learn strong{color:var(--accent)}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .skill-group h3{font-size:1rem;margin-bottom:17px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{font-size:.78rem;color:#c8d6e7;border:1px solid var(--line);padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.02)}
+    .explore-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .explore-item{padding:22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.02);transition:.25s ease}
+    .explore-item:hover{background:rgba(114,230,196,.045);transform:translateY(-3px)}
+    .explore-item span{font-size:.9rem;color:#d7e4f2}
+    .goals{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .goal-card{padding:30px}
+    .goal-card h3{margin-bottom:12px;font-size:1.25rem}
+    .goal-card p,.goal-card li{color:var(--muted)}
+    .goal-card ul{padding-left:20px;margin-top:14px}
+    .philosophy{position:relative;overflow:hidden;text-align:center;padding:55px 30px}
+    .quote{font-size:clamp(1.8rem,4vw,3.2rem);font-weight:800;letter-spacing:-.04em;max-width:850px;margin:15px auto 22px}
+    .philosophy p{color:var(--muted);max-width:700px;margin:auto}
+    .contact{display:grid;grid-template-columns:1fr .8fr;gap:22px}
+    .contact-main h3{font-size:1.8rem;margin-bottom:10px}
+    .contact-main p{color:var(--muted);max-width:650px}
+    .identity-box{display:grid;gap:11px}
+    .identity-box div{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid var(--line)}
+    .identity-box div:last-child{border-bottom:0}
+    .identity-box span:first-child{color:var(--muted)}
+    footer{padding:35px 0 55px;color:#72869e;font-size:.82rem;text-align:center}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @media(max-width:900px){
+      .hero-grid,.about-grid,.contact,.goals{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:repeat(2,1fr)}
+      .explore-grid{grid-template-columns:repeat(2,1fr)}
+      .hero{padding-top:65px}
+    }
+    @media(max-width:650px){
+      .container{width:min(var(--max),calc(100% - 28px))}
+      .nav-links{display:none}
+      section{padding:72px 0}
+      .hero{min-height:auto;padding:65px 0 75px}
+      .hero-grid{gap:40px}
+      h1{font-size:3.5rem}
+      .projects,.skills-grid,.explore-grid{grid-template-columns:1fr}
+      .section-head{display:block}
+      .section-intro{margin-top:15px}
+      .academic-row{display:block}
+      .academic-row span:last-child{text-align:left;display:block;margin-top:3px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Ruchitha<span>.</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#explore">Explore</a>
+        <a href="#goals">Goals</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> 3rd Semester · B.Tech CSIT</div>
+          <h1>Hi, I'm <span class="accent">Ruchitha.</span></h1>
+          <p class="hero-copy">
+            A Computer Science & Information Technology student at REVA University, Bengaluru,
+            building my foundations in software development, programming, technology, and problem solving.
+          </p>
+          <div class="identity">
+            <span class="pill">Aspiring Software Developer</span>
+            <span class="pill">Problem Solver</span>
+            <span class="pill">Tech Learner</span>
+            <span class="pill">SRN: R25EJ125</span>
+          </div>
+        </div>
+
+        <div class="hero-card reveal" aria-label="Portfolio identity card">
+          <div class="terminal-top"><i></i><i></i><i></i></div>
+          <div class="code-line"><span class="dim">const</span> <span class="blue">developer</span> = {</div>
+          <div class="code-line">&nbsp;&nbsp;name: <span class="green">"Ruchitha J.M."</span>,</div>
+          <div class="code-line">&nbsp;&nbsp;program: <span class="green">"B.Tech CSIT"</span>,</div>
+          <div class="code-line">&nbsp;&nbsp;semester: <span class="green">3</span>,</div>
+          <div class="code-line">&nbsp;&nbsp;focus: [<span class="green">"Build"</span>, <span class="green">"Learn"</span>, <span class="green">"Solve"</span>],</div>
+          <div class="code-line">&nbsp;&nbsp;goal: <span class="green">"Software Developer"</span></div>
+          <div class="code-line">};</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="kicker">01 · About Me</div><h2>My journey into software.</h2></div>
+          <p class="section-intro">I’m building my foundation one project, coding problem, collaboration, and new technology at a time.</p>
+        </div>
+        <div class="about-grid">
+          <article class="card reveal">
+            <p>I’m Ruchitha J.M., a third-semester B.Tech Computer Science & Information Technology student at REVA University, Bengaluru. I’m interested in software development, programming, technology, and problem solving, and I enjoy learning by actually working with the tools and concepts I study.</p>
+            <p>So far, my learning journey has taken me through programming languages, databases, Git and GitHub, web technologies, developer tools, and hands-on projects. I have basic-to-intermediate exposure to C, C++, Java, Python, SQL, HTML, Git, and GitHub, and I’m continuing to strengthen my fundamentals through coding practice and project work.</p>
+            <p>What interests me most is the process of turning a problem into a practical solution—understanding it, designing an approach, building it, testing it, debugging it, and improving it. I’m especially interested in software development, web development, Artificial Intelligence and Machine Learning, full-stack development, and problem solving.</p>
+            <p>As I continue through university, I want to experiment with technologies, participate in technical activities and hackathons, collaborate with other students, and build a portfolio that reflects how I am growing as a developer.</p>
+          </article>
+          <aside class="card reveal">
+            <div class="academic">
+              <div class="academic-row"><span>Name</span><span>Ruchitha J.M.</span></div>
+              <div class="academic-row"><span>SRN</span><span>R25EJ125</span></div>
+              <div class="academic-row"><span>University</span><span>REVA University</span></div>
+              <div class="academic-row"><span>Program</span><span>B.Tech – CSIT</span></div>
+              <div class="academic-row"><span>Semester</span><span>3rd Semester</span></div>
+              <div class="academic-row"><span>Section</span><span>C</span></div>
+              <div class="academic-row"><span>Location</span><span>Bengaluru</span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="kicker">02 · Projects & Journey</div><h2>Small projects. Real learning.</h2></div>
+          <p class="section-intro">These projects and activities are part of my learning journey so far. Each one has helped me build a different part of my foundation—from version control and collaboration to problem solving, application development, and IoT.</p>
+        </div>
+        <div class="projects">
+          <article class="card project reveal">
+            <div class="project-number">01 / GIT & GITHUB</div>
+            <h3>Hello World GitHub Repository</h3>
+            <p>This was one of my first steps into Git and GitHub. I created and worked with a simple Hello World repository, added files, made commits, tracked changes, and maintained the code online.</p>
+            <div class="learn"><strong>What I learned:</strong> I became familiar with the basic GitHub workflow and understood how source code can be stored, managed, version-controlled, and shared as part of a public coding portfolio.</div>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-number">02 / COLLABORATION</div>
+            <h3>Pair Programming & Collaboration</h3>
+            <p>I participated in a pair-programming activity using Git, GitHub, GitLens, and Live Share. I explored how developers can collaborate on programming tasks, share development environments, and keep track of changes through commits.</p>
+            <div class="learn"><strong>What I learned:</strong> I learned that software development is not always an individual activity. Communication, collaboration, Git workflows, change tracking, and teamwork are important parts of development.</div>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-number">03 / PROBLEM SOLVING</div>
+            <h3>LeetCode Problem-Solving Repository</h3>
+            <p>I practiced programming problems and maintained my solutions using GitHub. The work focused on understanding problems, breaking them into smaller steps, designing logical solutions, writing and testing code, debugging errors, and documenting my practice.</p>
+            <div class="learn"><strong>What I learned:</strong> This strengthened my programming logic, problem-solving approach, debugging habits, programming fundamentals, and ability to document technical work. I want to continue expanding this repository as I practice more Data Structures & Algorithms problems.</div>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-number">04 / PYTHON & STREAMLIT</div>
+            <h3>Python SIP Calculator</h3>
+            <p>I explored Python application development through a SIP Calculator, combining programming logic with a simple user interface. I also explored Streamlit for creating interactive Python-based applications.</p>
+            <div class="learn"><strong>What I learned:</strong> I learned how programming logic can be connected to a simple user-facing application and gained practical exposure to Streamlit application development.</div>
+          </article>
+
+          <article class="card project reveal" style="grid-column:1/-1">
+            <div class="project-number">05 / ARDUINO & IOT</div>
+            <h3>Arduino-based Smart Parking System</h3>
+            <p>I explored IoT through an Arduino-based Smart Parking System using an Arduino UNO, ultrasonic sensor, LCD with I2C, LEDs, resistors, breadboard, and servo motor. The project helped me connect programming with sensors and embedded components.</p>
+            <div class="learn"><strong>What I learned:</strong> I gained a practical understanding of how software can interact with sensors, electronic components, and real-world systems, strengthening my interest in IoT and hands-on technology projects.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="kicker">03 · Technical Skills</div><h2>Tools I’m learning with.</h2></div>
+          <p class="section-intro">My current technical foundation spans programming, web development, databases, version control, computer science fundamentals, Arduino/IoT, and the professional skills I am developing through practice and projects.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="card skill-group reveal">
+            <h3>Programming Languages</h3>
+            <div class="tags">
+              <span class="tag">C</span><span class="tag">C++</span><span class="tag">Java</span><span class="tag">Python</span>
+            </div>
+          </article>
+
+          <article class="card skill-group reveal">
+            <h3>Web Development</h3>
+            <div class="tags">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Basic Web Development</span><span class="tag">Flask</span><span class="tag">Streamlit</span>
+            </div>
+          </article>
+
+          <article class="card skill-group reveal">
+            <h3>Database Technologies</h3>
+            <div class="tags">
+              <span class="tag">SQL</span><span class="tag">Database Management Systems</span><span class="tag">Relational Databases</span><span class="tag">ER Modeling</span><span class="tag">SQL Queries</span><span class="tag">Joins</span><span class="tag">Aggregate Functions</span>
+            </div>
+          </article>
+
+          <article class="card skill-group reveal">
+            <h3>Developer Tools & Platforms</h3>
+            <div class="tags">
+              <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Visual Studio Code</span><span class="tag">GitLens</span><span class="tag">GitHub Pages</span><span class="tag">Live Share</span>
+            </div>
+          </article>
+
+          <article class="card skill-group reveal">
+            <h3>Computer Science Fundamentals</h3>
+            <div class="tags">
+              <span class="tag">Programming Fundamentals</span><span class="tag">Problem Solving</span><span class="tag">Data Structures & Algorithms</span><span class="tag">Object-Oriented Programming</span><span class="tag">Recursion</span><span class="tag">Arrays</span><span class="tag">Structures</span><span class="tag">Pointers</span><span class="tag">File Handling</span><span class="tag">Dynamic Memory Allocation</span><span class="tag">Database Concepts</span><span class="tag">Computer Architecture</span>
+            </div>
+          </article>
+
+          <article class="card skill-group reveal">
+            <h3>Other Technologies</h3>
+            <div class="tags">
+              <span class="tag">Arduino</span><span class="tag">IoT</span><span class="tag">Sensors and Embedded Components</span><span class="tag">Streamlit Application Development</span>
+            </div>
+          </article>
+
+          <article class="card skill-group reveal" style="grid-column:1/-1">
+            <h3>Professional & Personal Skills</h3>
+            <div class="tags">
+              <span class="tag">Logical Thinking</span><span class="tag">Problem Solving</span><span class="tag">Debugging</span><span class="tag">Team Collaboration</span><span class="tag">Communication</span><span class="tag">Project Development</span><span class="tag">Continuous Learning</span><span class="tag">Creativity</span><span class="tag">Adaptability</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="explore">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="kicker">04 · Areas to Explore</div><h2>Where I want to go next.</h2></div>
+          <p class="section-intro">I want to move gradually from basic knowledge toward deeper practical understanding by building projects and solving real-world problems.</p>
+        </div>
+        <div class="explore-grid">
+          <div class="explore-item reveal"><span>Software Development</span></div>
+          <div class="explore-item reveal"><span>Full-Stack Development</span></div>
+          <div class="explore-item reveal"><span>Artificial Intelligence</span></div>
+          <div class="explore-item reveal"><span>Machine Learning</span></div>
+          <div class="explore-item reveal"><span>Web Development</span></div>
+          <div class="explore-item reveal"><span>Data Structures & Algorithms</span></div>
+          <div class="explore-item reveal"><span>Database Systems</span></div>
+          <div class="explore-item reveal"><span>Cybersecurity</span></div>
+          <div class="explore-item reveal"><span>IoT</span></div>
+          <div class="explore-item reveal"><span>Cloud Technologies</span></div>
+          <div class="explore-item reveal"><span>Product Development</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="goals">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="kicker">05 · Career & Learning Goals</div><h2>Building toward software development.</h2></div>
+          <p class="section-intro">My immediate goal is to strengthen my core development skills while gradually exploring the areas I want to grow into.</p>
+        </div>
+        <div class="goals">
+          <article class="card goal-card reveal">
+            <h3>Strengthen my foundation</h3>
+            <p>My short-term goal is to become more confident in programming, Data Structures & Algorithms, Git/GitHub, databases, and web development.</p>
+            <p style="margin-top:14px">I want to build meaningful projects and use them to demonstrate my technical growth rather than simply listing technologies.</p>
+          </article>
+          <article class="card goal-card reveal">
+            <h3>Explore & grow</h3>
+            <p>Alongside my core skills, I want to deepen my understanding of the areas I am interested in and gradually move from basic knowledge toward practical understanding.</p>
+            <ul>
+              <li>Artificial Intelligence & Machine Learning</li>
+              <li>Full-Stack Development</li>
+              <li>Cybersecurity</li>
+              <li>Cloud Technologies</li>
+              <li>IoT</li>
+              <li>Product Development</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="card philosophy reveal">
+          <div class="kicker">06 · Development Philosophy</div>
+          <div class="quote">Learn → Build → Test → Debug → Improve → Repeat.</div>
+          <p>Every coding problem, project, error, collaboration, and new technology gives me an opportunity to learn something new. I want to use my university years to experiment, build, collaborate, and develop the technical and problem-solving skills needed to become a successful software professional.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="kicker">07 · Contact / Portfolio</div><h2>Let the work tell the story.</h2></div>
+          <p class="section-intro">My portfolio identity is centered on what I learn, what I build, the problems I solve, and how I continue to grow.</p>
+        </div>
+        <div class="contact">
+          <article class="card contact-main reveal">
+            <h3>Ruchitha J.M.</h3>
+            <p>B.Tech CSIT · 3rd Semester · REVA University · Bengaluru</p>
+            <p style="margin-top:14px">Aspiring Software Developer · Problem Solver · Tech Learner</p>
+            <p style="margin-top:20px">My portfolio is a record of what I learn, what I build, the problems I solve, and how I continue to grow.</p>
+          </article>
+          <aside class="card identity-box reveal">
+            <div><span>SRN</span><strong>R25EJ125</strong></div>
+            <div><span>Branch</span><strong>Computer Science & Information Technology</strong></div>
+            <div><span>Section</span><strong>C</strong></div>
+            <div><span>Vision</span><strong>Build. Learn. Solve. Improve. Repeat.</strong></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Ruchitha J.M. · B.Tech CSIT · REVA University</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
